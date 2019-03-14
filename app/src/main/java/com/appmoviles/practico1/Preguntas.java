@@ -91,8 +91,13 @@ public class Preguntas extends AppCompatActivity {
             public void onClick(View v) {
                 boolean correcto = revisarRespuesta();
                 if(correcto){
-                    tv_mensaje.setText("Has sumado 10 puntos");
-                    g.setData(g.getData()+10);
+                    if(facil){
+                        tv_mensaje.setText("Has sumado 10 puntos");
+                        g.setData(g.getData()+10);
+                    } else{
+                        tv_mensaje.setText("Has sumado 20 puntos");
+                        g.setData(g.getData()+20);
+                    }
                     tv_puntaje.setText("Tu puntaje es "+g.getData());
                     generarPregunta(facil);
                     generarRespuestas();
@@ -166,14 +171,12 @@ public class Preguntas extends AppCompatActivity {
     private void generarRespuestas(){
         int[] respuestas = new int[4];
         respuestas[0] = real;
-        for(int i=1; i<4; i++){
-            if(new Random().nextInt(2)==1){
-                respuestas[i] = real+new Random().nextInt(3)+1;
-            } else {
-                respuestas[i] = real-new Random().nextInt(6)+3;
-            }
-        }
+        respuestas[1] = real+(new Random().nextInt(3)+1);
+        respuestas[2] = real+(new Random().nextInt(6)+3);
+        respuestas[3] = real-(new Random().nextInt(3)+1);
+
         respuestas=shuffle(respuestas);
+
         rb_option0.setText(respuestas[0]+"");
         rb_option1.setText(respuestas[1]+"");
         rb_option2.setText(respuestas[2]+"");
