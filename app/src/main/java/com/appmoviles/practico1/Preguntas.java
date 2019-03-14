@@ -167,11 +167,10 @@ public class Preguntas extends AppCompatActivity {
         int[] respuestas = new int[4];
         respuestas[0] = real;
         for(int i=1; i<4; i++){
-            int varianza=new Random().nextInt(5)+1;
             if(new Random().nextInt(2)==1){
-                respuestas[i] = real+varianza;
+                respuestas[i] = real+new Random().nextInt(3)+1;
             } else {
-                respuestas[i] = real-varianza;
+                respuestas[i] = real-new Random().nextInt(6)+3;
             }
         }
         respuestas=shuffle(respuestas);

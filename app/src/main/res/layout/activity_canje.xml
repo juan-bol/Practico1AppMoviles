@@ -9,12 +9,13 @@
 
     <ListView
         android:id="@+id/lista"
-        android:layout_width="0dp"
+        android:layout_width="259dp"
         android:layout_height="0dp"
         android:layout_marginStart="32dp"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="32dp"
         android:layout_marginBottom="32dp"
+        android:background="#ffffff"
         app:layout_constraintBottom_toTopOf="@+id/tv_puntaje"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -28,14 +29,16 @@
         android:layout_marginTop="32dp"
         android:layout_marginEnd="8dp"
         android:text="Zona de Canje"
-        android:textColor="@color/design_default_color_primary_dark"
+        android:textColor="#809fff"
         android:textSize="30sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/tv_descripcion"
+        android:textColor="#ffffff"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -54,7 +57,8 @@
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="64dp"
         android:text="TextView"
-        android:textColor="@color/design_default_color_primary"
+        android:textColor="#809fff"
+        android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
