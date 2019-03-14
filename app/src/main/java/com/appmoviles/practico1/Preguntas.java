@@ -105,30 +105,50 @@ public class Preguntas extends AppCompatActivity {
     }
 
     public void generarPregunta(boolean facil){
-        if(facil){
-            operando1 = new Random().nextInt(50)+1;
-            operando2 = new Random().nextInt(50)+1;
-        } else {
-            operando1 = new Random().nextInt(200)+1;
-            operando2 = new Random().nextInt(200)+1;
-        }
-
         int oper = new Random().nextInt(4);
         real = 0;
         switch (oper) {
             case 0:
+                if(facil){
+                    operando1 = new Random().nextInt(51)+1;
+                    operando2 = new Random().nextInt(51)+1;
+                } else {
+                    operando1 = new Random().nextInt(201)+30;
+                    operando2 = new Random().nextInt(201)+30;
+                }
                 operacion=SUMA;
                 real = operando1+operando2;
                 break;
             case 1:
+                if(facil){
+                    operando1 = new Random().nextInt(51)+1;
+                    operando2 = new Random().nextInt(51)+1;
+                } else {
+                    operando1 = new Random().nextInt(201)+30;
+                    operando2 = new Random().nextInt(201)+30;
+                }
                 operacion=RESTA;
                 real = operando1-operando2;
                 break;
             case 2:
+                if(facil){
+                    operando1 = new Random().nextInt(20)+1;
+                    operando2 = new Random().nextInt(10)+1;
+                } else {
+                    operando1 = new Random().nextInt(40)+1;
+                    operando2 = new Random().nextInt(20)+1;
+                }
                 operacion=MULTIPLICACION;
                 real = operando1*operando2;
                 break;
             case 3:
+                if(facil){
+                    operando1 = new Random().nextInt(61)+1;
+                    operando2 = new Random().nextInt(3)+1;
+                } else {
+                    operando1 = new Random().nextInt(201)+1;
+                    operando2 = new Random().nextInt(15)+1;
+                }
                 operacion=DIVISION;
                 if(operando1>operando2){
                     real = (Integer) operando1/operando2;
@@ -147,11 +167,11 @@ public class Preguntas extends AppCompatActivity {
         int[] respuestas = new int[4];
         respuestas[0] = real;
         for(int i=1; i<4; i++){
-            int varianza=new Random().nextInt(4);
+            int varianza=new Random().nextInt(5)+1;
             if(new Random().nextInt(2)==1){
-                respuestas[i] = real+varianza+new Random().nextInt(2);
+                respuestas[i] = real+varianza;
             } else {
-                respuestas[i] = real-varianza+new Random().nextInt(3);
+                respuestas[i] = real-varianza;
             }
         }
         respuestas=shuffle(respuestas);

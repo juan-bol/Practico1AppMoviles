@@ -78,6 +78,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 startActivity(i);
             }
         });
+        deshabilitar();
     }
 
 
@@ -262,10 +263,14 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             }
         }
         else {
-            fab_canje.setEnabled(false);
-            fab_canje.setVisibility(View.INVISIBLE);
-            fab_preguntas.setEnabled(false);
-            fab_preguntas.setVisibility(View.INVISIBLE);
+            deshabilitar();
         }
+    }
+
+    private void deshabilitar(){
+        fab_canje.setEnabled(false);
+        fab_canje.setVisibility(View.INVISIBLE);
+        fab_preguntas.setEnabled(false);
+        fab_preguntas.setVisibility(View.INVISIBLE);
     }
 }

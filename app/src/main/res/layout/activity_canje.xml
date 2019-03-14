@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Canje">
+    tools:context=".Canje"
+    android:background="@drawable/backgorund_gray">
 
     <ListView
         android:id="@+id/lista"

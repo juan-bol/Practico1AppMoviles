@@ -1,5 +1,7 @@
 package com.appmoviles.practico1;
 
+import android.content.DialogInterface;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -27,6 +29,7 @@ public class Canje extends AppCompatActivity {
 
         lista = (ListView) findViewById(R.id.lista);
 
+        final String[] items = new String[] {"Lapicero Icesi", "Cuaderno", "Libreta Icesi", "Camiseta Icesi", "Buso Icesi"};
         String[] values = new String[] {"Lapicero Icesi -> 20 pts", "Cuaderno -> 30 pts", "Libreta Icesi -> 40 pts", "Camiseta Icesi -> 80 pts", "Buso Icesi -> 100 pts"};
         final int[] prices = new int[] {20,30,40,80,100};
 
@@ -38,13 +41,31 @@ public class Canje extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 if(g.getData()>=prices[position]){
-                    String item = (String) lista.getItemAtPosition(position);
+                    String item = (String) items[position];
                     int precio = prices[position];
-                    Toast.makeText(Canje.this, "Compraste "+item+" por $"+precio, Toast.LENGTH_SHORT).show();
+                    AlertDialog alertDialog = new AlertDialog.Builder(Canje.this).create();
+                    alertDialog.setTitle("Compra con éxito");
+                    alertDialog.setMessage("Compraste "+item+" por $"+precio+"\nTu código es: 4Pp2 W071L3z");
+                    alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
+                            new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int which) {
+                                    dialog.dismiss();
+                                }
+                            });
+                    alertDialog.show();
                     g.setData(g.getData()-prices[position]);
                     tv_puntaje.setText("Tu puntaje es "+g.getData());
                 } else {
-                    Toast.makeText(Canje.this, "Puntos insuficientes, ve a una Zona de Preguntas", Toast.LENGTH_SHORT).show();
+                    AlertDialog alertDialog = new AlertDialog.Builder(Canje.this).create();
+                    alertDialog.setTitle("Puntos insuficientes");
+                    alertDialog.setMessage("Ve a una zona de preguntas para ganar puntos");
+                    alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
+                            new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int which) {
+                                    dialog.dismiss();
+                                }
+                            });
+                    alertDialog.show();
                 }
             }
         });
